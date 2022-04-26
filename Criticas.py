@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from math import sqrt
+
 datos = {
     "Opinion":[5,4,3,2,1,0],
     "Cantidad de Votantes":[42,96,132,124,88,58]
@@ -48,16 +49,16 @@ def calcular_std(dataset, col1, col2):
         columna = []
         media = calcular_media(dataset, col1, col2)
         for i in range(len(dataset)):
-            resultado = dataset[col2][i] * (dataset[col1][i] - media)
+            resultado = dataset[col2][i] * (dataset[col1][i] - media)*(dataset[col1][i] - media)
             columna.append(resultado)
         return columna
 
     dataset["Ni*((Xi-media)^2)"] = columna_std()
     suma_columna = dataset["Ni*((Xi-media)^2)"].sum()
     suma_ni = dataset[col2].sum()
-    varianza = round(suma_columna/suma_ni, 2)
+    varianza = suma_columna/suma_ni
 
-    return sqrt(varianza)
+    return round(sqrt(varianza),2)
 
 print (calcular_std(dt, "Opinion", "Cantidad de Votantes"))
 #Da mal, corregir la funcion, debe haber un error
