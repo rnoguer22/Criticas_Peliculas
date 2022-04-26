@@ -36,7 +36,8 @@ def calcular_media(dataset, col1, col2):
     suma_xini = dataset["XiNi"].sum()
     suma_ni = dataset[col2].sum()
 
-    return suma_xini/suma_ni
+    #Redondeamos la media a la centesimas
+    return round(suma_xini/suma_ni, 2)
 
 
 print(calcular_media(dt, "Opinion", "Cantidad de Votantes"))
