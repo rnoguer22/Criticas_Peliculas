@@ -21,7 +21,15 @@ plt.xlabel(None)
 dt["Cantidad de Votantes"] = [40, 99, 145, 133, 96, 40]
 
 #A continuacion vamos a crear una nueva columna del dataset, para facilitar el calculo de la media
+#Creamos una funcion que nos calcula la columna xini
+def calcular_media(dataset, col1, col2):
+    xini = []
+    for i in range (len(dataset)):
+        resultado = dt[col1][i]*dt[col2][i]
+        xini.append(resultado)
+    return xini
 
 
 
-#lt.show()
+
+#plt.show()
