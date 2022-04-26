@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from math import sqrt
 datos = {
     "Opinion":[5,4,3,2,1,0],
     "Cantidad de Votantes":[42,96,132,124,88,58]
@@ -57,8 +57,9 @@ def calcular_std(dataset, col1, col2):
     suma_ni = dataset[col2].sum()
     varianza = round(suma_columna/suma_ni, 2)
 
-    return varianza^(0.5)
+    return sqrt(varianza)
 
 print (calcular_std(dt, "Opinion", "Cantidad de Votantes"))
+#Da mal, corregir la funcion, debe haber un error
 
 #plt.show()
