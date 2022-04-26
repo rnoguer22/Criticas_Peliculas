@@ -8,11 +8,13 @@ datos = {
 
 #Creamos el dataframe a partir de los datos del enunciado
 dt = pd.DataFrame(datos)
-print (dt)
 
 #Realizamos el grafico barras a partir de los datos del enunciado
 dt.groupby("Opinion")["Cantidad de Votantes"].sum().plot(kind="bar")
 #Añadimos un titulo para el grafico
 plt.title("Opiniones obtenidas para una pelicula")
-plt.show()
+#Eliminamos la etiqueta de texto del eje x
+plt.xlabel(None)
 
+
+plt.show()
