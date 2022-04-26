@@ -22,13 +22,24 @@ dt["Cantidad de Votantes"] = [40, 99, 145, 133, 96, 40]
 
 #A continuacion vamos a crear una nueva columna del dataset, para facilitar el calculo de la media
 #Creamos una funcion que nos calcula la columna xini
-def calcular_media(dataset, col1, col2):
-    xini = []
-    for i in range (len(dataset)):
-        resultado = dt[col1][i]*dt[col2][i]
-        xini.append(resultado)
-    return xini
 
+def calcular_media(dataset, col1, col2):
+
+    def calcular_xini():
+        xini = []
+        for i in range (len(dataset)):
+            resultado = dt[col1][i]*dt[col2][i]
+            xini.append(resultado)
+        return xini
+
+    dataset["XiNi"] = calcular_xini()
+    suma_xini = dataset["XiNi"].sum()
+    suma_ni = dataset[col2].sum()
+
+    return suma_xini/suma_ni
+
+
+print(calcular_media(dt, "Opinion", "Cantidad de Votantes"))
 
 
 
