@@ -17,4 +17,11 @@ plt.title("Opiniones obtenidas para una pelicula")
 plt.xlabel(None)
 
 
-plt.show()
+#Cambiamos la columna "Cantidad de Votantes" del pequeño dataset
+dt["Cantidad de Votantes"] = [40, 99, 145, 133, 96, 40]
+
+#A continuacion vamos a crear una nueva columna del dataset, para facilitar el calculo de la media
+
+
+
+#lt.show()
