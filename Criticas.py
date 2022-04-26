@@ -39,7 +39,8 @@ def calcular_media(dataset, col1, col2):
     return round(suma_xini/suma_ni, 2)
 
 #Mostramos el resultado por pantalla
-print(calcular_media(dt, "Opinion", "Cantidad de Votantes"))
+media = calcular_media(dt, "Opinion", "Cantidad de Votantes")
+print(media)
 
 
 #Ahora vamos a hacer lo mismo pero para calcular la desviacion tipica
@@ -60,7 +61,20 @@ def calcular_std(dataset, col1, col2):
 
     return round(sqrt(varianza),2)
 
-print (calcular_std(dt, "Opinion", "Cantidad de Votantes"))
-#Da mal, corregir la funcion, debe haber un error
+std = calcular_std(dt, "Opinion", "Cantidad de Votantes")
+print (std)
+
+lim_inf = std - media
+lim_sup = std + media
+print([lim_inf, lim_sup])
+r = []
+for i in range (len(dt)):
+    if dt["Opinion"][i] >= lim_inf and dt["Opinion"][i] <= lim_sup:
+        r.append(dt["Opinion"][i])
+    else:
+        pass
+r.sort()
+
+print (r)
 
 #plt.show()
