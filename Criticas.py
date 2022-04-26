@@ -21,8 +21,6 @@ plt.xlabel(None)
 dt["Cantidad de Votantes"] = [40, 99, 145, 133, 96, 40]
 
 #A continuacion vamos a crear una nueva columna del dataset, para facilitar el calculo de la media
-#Creamos una funcion que nos calcula la columna xini
-
 def calcular_media(dataset, col1, col2):
 
     def calcular_xini():
@@ -39,9 +37,28 @@ def calcular_media(dataset, col1, col2):
     #Redondeamos la media a la centesimas
     return round(suma_xini/suma_ni, 2)
 
-
+#Mostramos el resultado por pantalla
 print(calcular_media(dt, "Opinion", "Cantidad de Votantes"))
 
 
+#Ahora vamos a hacer lo mismo pero para calcular la desviacion tipica
+def calcular_std(dataset, col1, col2):
+
+    def columna_std():
+        columna = []
+        media = calcular_media(dataset, col1, col2)
+        for i in range(len(dataset)):
+            resultado = dataset[col2][i] * (dataset[col1][i] - media)
+            columna.append(resultado)
+        return columna
+
+    dataset["Ni*((Xi-media)^2)"] = columna_std()
+    suma_columna = dataset["Ni*((Xi-media)^2)"].sum()
+    suma_ni = dataset[col2].sum()
+    varianza = round(suma_columna/suma_ni, 2)
+
+    return varianza^(0.5)
+
+print (calcular_std(dt, "Opinion", "Cantidad de Votantes"))
 
 #plt.show()
