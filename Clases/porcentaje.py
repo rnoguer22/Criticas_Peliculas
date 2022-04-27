@@ -26,4 +26,4 @@ class Porcentaje(Media):
         print (r)
 
         #Hallamos el porcentaje
-        print ("El porcentaje es {}%".format(round(sum(s)/self.dataset[self.col2].sum(), 2)))
+        return (round(sum(s)/self.dataset[self.col2].sum(), 2))
