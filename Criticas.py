@@ -36,7 +36,7 @@ def calcular_media(dataset, col1, col2):
     suma_ni = dataset[col2].sum()
 
     #Redondeamos la media a la centesimas
-    return round(suma_xini/suma_ni, 2)
+    return suma_xini/suma_ni
 
 #Mostramos el resultado por pantalla
 media = calcular_media(dt, "Opinion", "Cantidad de Votantes")
@@ -59,7 +59,7 @@ def calcular_std(dataset, col1, col2):
     suma_ni = dataset[col2].sum()
     varianza = suma_columna/suma_ni
 
-    return round(sqrt(varianza),2)
+    return sqrt(varianza)
 
 std = calcular_std(dt, "Opinion", "Cantidad de Votantes")
 print (std)
@@ -84,6 +84,9 @@ def porcentaje(dataset, col1, col2, num):
     print ("El porcentaje es {}%".format(round(sum(s)/dt["Cantidad de Votantes"].sum(), 2)))
     #Esto es correcto ya que con [1,2,3] el porcentaje se queda por debajo de 67%, buscamos que se quede minimo por encima de 68%
 
-porcentaje (dt, "Opinion", "Cantidad de Votantes", 1.1)
+porcentaje (dt, "Opinion", "Cantidad de Votantes", 1)
+porcentaje (dt, "Opinion", "Cantidad de Votantes", 2)
+porcentaje (dt, "Opinion", "Cantidad de Votantes", 3)
+
 
 #plt.show()
