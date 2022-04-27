@@ -67,7 +67,6 @@ print (std)
 def porcentaje(dataset, col1, col2, num):
     lim_inf = media - num*std
     lim_sup = media + num*std
-    print([lim_inf, lim_sup])
     r = []
     s = []
     for i in range (len(dataset)):
@@ -76,17 +75,20 @@ def porcentaje(dataset, col1, col2, num):
             s.append(dt[col2][i])
         else:
             pass
-
     r.sort()
     print (r)
 
-    #Hallamos el porcentaje a ver si es correcto
+    #Hallamos el porcentaje
     print ("El porcentaje es {}%".format(round(sum(s)/dt["Cantidad de Votantes"].sum(), 2)))
-    #Esto es correcto ya que con [1,2,3] el porcentaje se queda por debajo de 67%, buscamos que se quede minimo por encima de 68%
+
+
 
 porcentaje (dt, "Opinion", "Cantidad de Votantes", 1)
 porcentaje (dt, "Opinion", "Cantidad de Votantes", 2)
 porcentaje (dt, "Opinion", "Cantidad de Votantes", 3)
 
+#Podemos ver que estos porcentajes no son correctos. Esto es debido a que el dataset es demsasiado
+#pequeño, por lo que no es correcto la aproximacion a la normal
 
-#plt.show()
+
+plt.show()
