@@ -18,5 +18,4 @@ class Media:
         suma_xini = self.dataset["XiNi"].sum()
         suma_ni = self.dataset[self.col2].sum()
 
-        #Redondeamos la media a la centesimas
         return suma_xini/suma_ni
