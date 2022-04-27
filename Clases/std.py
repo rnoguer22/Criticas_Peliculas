@@ -1,4 +1,4 @@
-from Clases.media import Media
+from media import Media
 from math import sqrt
 
 class Std(Media):
@@ -11,7 +11,7 @@ class Std(Media):
 
         def columna_std():
             columna = []
-            media = self.calcular_media(self.dataset, self.col1, self.col2)
+            media = self.calcular_media()
             for i in range(len(self.dataset)):
                 resultado = self.dataset[self.col2][i] * (self.dataset[self.col1][i] - media)*(self.dataset[self.col1][i] - media)
                 columna.append(resultado)

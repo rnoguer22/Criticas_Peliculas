@@ -1,4 +1,4 @@
-from media import Media
+from Clases.media import Media
 import matplotlib.pyplot as plt
 
 class Grafico(Media):
