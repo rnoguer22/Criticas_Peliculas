@@ -68,13 +68,20 @@ lim_inf = std - media
 lim_sup = std + media
 print([lim_inf, lim_sup])
 r = []
+s = []
 for i in range (len(dt)):
     if dt["Opinion"][i] >= lim_inf and dt["Opinion"][i] <= lim_sup:
         r.append(dt["Opinion"][i])
+        s.append(dt["Cantidad de Votantes"][i])
     else:
         pass
-r.sort()
 
+r.sort()
 print (r)
+
+#Hallamos el porcentaje a ver si es correcto
+print ("El porcentaje es {}%".format(round(sum(s)/dt["Cantidad de Votantes"].sum(), 2)))
+#Esto es correcto ya que con [1,2,3] el porcentaje se queda por debajo de 67%, buscamos que se quede minimo por encima de 68%
+
 
 #plt.show()
